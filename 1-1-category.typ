@@ -6,7 +6,7 @@
 #let fancy = cosmos.fancy
 #let simple = cosmos.simple
 
-= Category
+== Category
 #fancy.definition(title: "Category")[
   A category $cal(C)$ consists of the following data:
   + collection of objects (not necessaily a set): $X, Y, Z, ...$
@@ -109,9 +109,12 @@
 #proof()[
   We first prove $(1) <=> (2)$, then use dual argument to get $(1) <=> (3)$.\
   $(1) => (2)$: Suppose $f: X -> Y$ is an isomorphism, with inverse $f^(-1): Y -> X$. \
-  For any $c in cal(C)$, we want to find the inverse $g_*$ of the map $f_* eq.def f compose - : "Hom"(c, X) -> "Hom"(c, Y)$. \
-  More precisely, let $X^*: c -> X$ in $"Hom"(c, X)$ and $Y^*: c -> Y$ in $"Hom"(c, Y)$, \
-  we want to show that $g_*(f_*(X^*))= X^*$ and $f_*(g_*(Y^*)) = Y^*$. Define $g_*: "Hom"(c, Y) -> "Hom"(c, X)$ as $g_*(Y^*) eq.def f^(-1) compose Y^*$. Unpacking the definitions will do the job.\
+  For any $c in cal(C)$, we want to find the inverse $g_*$ of the map $ f_* eq.def f compose - : "Hom"(c, X) -> "Hom"(c, Y) $
+  More precisely, let $X_*: c -> X$ in $"Hom"(c, X)$ and $Y_*: c -> Y$ in $"Hom"(c, Y)$, \
+  we want to show that $g_*(f_*(X_*))= X_*$ and $f_*(g_*(Y_*)) = Y_*$. Define
+  $ &g_*: "Hom"(c, Y) -> "Hom"(c, X) \
+  &g_*(Y_*) eq.def f^(-1) compose Y_* $
+  Unpacking the definitions will do the job.\
 
   $(2) => (1)$: First we want to prove the right inverse, i.e. exist $g: Y -> X$ such that $f compose g = id_Y$. \
   Consider when $c = Y$, then $f_*: "Hom"(Y, X) -> "Hom"(Y, Y)$. Since $f_*$ is surjective, every element in $"Hom"(Y, Y)$ has a preimage. In particular for $id_Y in "Hom"(Y, Y)$, there exists $g in "Hom"(Y, X)$ such that $f_*(g) =  id_Y$, i.e. $f compose g = id_Y$.

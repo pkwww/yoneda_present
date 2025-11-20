@@ -25,4 +25,8 @@
 #show math.equation: set text(font: "New Computer Modern Math")
 #show: show-theorion
 
-#include "1-category.typ"
+= Basic Notions in Category Theory
+#include "1-1-category.typ"
+#include "1-2-functor.typ"
+#include "1-3-nat-trans.typ"
+= Yoneda Lemma
