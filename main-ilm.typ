@@ -1,11 +1,4 @@
-#import "@preview/ilm:1.4.1": *
-#import "@preview/theorion:0.4.0": *
-#import "@preview/commute:0.3.0": node, arr, commutative-diagram
-#import cosmos.rainbow: theorem
-#import cosmos.simple: definition
-#let rainbow = cosmos.rainbow
-#let fancy = cosmos.fancy
-#let simple = cosmos.simple
+#import "import.typ":*
 
 #set text(lang: "en")
 
@@ -24,6 +17,8 @@
 #show raw: set text(font: ("Libertinus Serif", "Noto Serif TC"), size: 9pt)
 #show math.equation: set text(font: "New Computer Modern Math")
 #show: show-theorion
+
+#set enum(indent: 1.5em)
 
 = Basic Notions in Category Theory
 #include "1-1-category.typ"

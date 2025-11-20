@@ -1,10 +1,4 @@
-#import "@preview/theorion:0.4.0": *
-#import "@preview/commute:0.3.0": node, arr, commutative-diagram
-#import cosmos.rainbow: theorem
-#import cosmos.simple: definition
-#let rainbow = cosmos.rainbow
-#let fancy = cosmos.fancy
-#let simple = cosmos.simple
+#import "import.typ":*
 
 == Category
 #fancy.definition(title: "Category")[
@@ -19,7 +13,7 @@
   + associativity: if $f: X -> Y$, $g: Y -> Z$, $h: Z -> W$, then $(h compose g) compose f = h compose (g compose f)$
   + identity: for any morphism $f: X -> Y$, we have $id_X compose f = f = f compose id_Y$
 ]<def:category>
-#definition(title: "Hom")[
+#fancy.definition(title: "Hom")[
   The collection of morphisms between $X$ and $Y$ is denoted as $cal(C)(X, Y)$ or $"Hom"_cal(C)(X, Y)$ (or simply $"Hom"(X, Y)$ if the category is clear from context).
 ]
 #definition(title: "(Locally) Small Category")[
@@ -35,7 +29,7 @@
   + Morphisms: a morphism from $X -> Y$ is a set theorectic function from $X -> Y$
   + Identity, composition, associativity, identity laws are those of ordinary functions.
 ]
-#example(title: "Example. (Set-like category)")[
+#example(title: "Example (Set-like category)")[
   The category $sans("Monoid")$ ($sans("Grp")$, $sans("Vect")_k$, $sans("Top")$):
   + Objects: all monoids (groups, vector spaces over a field $k$, topological spaces)
   + Morphisms: a morphism from $M -> N$ is a monoid homomorphism (group homomorphism, linear map, continuous map) from $M -> N$
@@ -50,12 +44,15 @@
   + associativity and identity laws follow from those of monoids.
 ]
 #example[
-  A poset (partially ordered set) $(P, <=)$ can be viewed as a category $cal(C)_P$:
+  A poset (partially ordered set) $(P, <=)$ can be viewed as a category:
   + Objects: elements of $P$
   + Morphisms: for $x, y in P$, there is a single morphism $f: x -> y$ if $x <= y$; otherwise, there is no morphism from $x$ to $y$.
   + Identity morphism: for each $x in P$, the identity morphism $id_x: x -> x$ corresponds to the reflexivity
   + Composition: if there is a morphism $f: x -> y$ and a morphism $g: y -> z$, then there is a morphism $g compose f: x -> z$ corresponding to transitivity.
   + Associativity and identity laws doesn't mean anything here.
+]
+#idea-box(title: "Idea")[
+  The real important things in a category are the morphisms (arrows) between objects, rather than the objects themselves.
 ]
 #simple.definition(title: "Endomorphism")[
   A morphism $f: X -> X$ is called an endomorphism of $X$.
@@ -68,6 +65,17 @@
 ]
 #example[
   A group $G$ can be viewed as a category ($sans(bold(B)G)$) similar to monoid, with a single object {$*$} and morphisms are elements of $G$. Since all elements in a group are invertible, all morphisms in $sans(bold(B)G)$ are isomorphisms. Thus, $sans(bold(B)G)$ is a groupoid with a single object.
+]
+
+#example[
+  Given a topological space $X$, the fundamental groupoid $Pi_1(X)$ is defined as:
+  + objects: points in $X$
+  + morphisms: given two points $x, y in X$, the equivalent classes of continuous paths from $x$ to $y$, where two paths are equivalent if they are homotopic (continuous deformation).
+  + identity morphism: the constant path at each point
+  + composition: concatenation of paths
+  + invertibility is just reversing the path
+
+  Fix a point $p$ in $X$, consider all the paths (up to homotopy) from $p$ to itself is called the fundamental group $pi_1(X, p)$.
 ]
 #definition(title: "Subcategory")[
   A subcategory of a category $cal(C)$ consists of some objects and some morphisms between these chosen objects, s.t. $id_X$ exists and morphism composition is closed. \
