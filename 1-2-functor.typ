@@ -24,6 +24,14 @@
 ]
 
 #example[
+  Let $sans(bold(B)G), sans(bold(B)H)$ be two groups (viewed as one-object categories). A functor $F: sans(bold(B)G) -> sans(bold(B)H)$ consists of
+  + the single object $*$ maps to the single object $*$
+  + each morphism $g in sans(bold(B)G)(*,*) = G$ maps to some morphism $F(g): * -> *$ in $sans(bold(B)H)$, which is just an element $h in H$.
+  The functoriality make sure that $F(id_*) = id_*$ and $F(g_1 g_2) = F(g_1) F(g_2)$. \
+  This is just a group homomorphism.
+]
+
+#example[
   Let $sans(bold(B)G)$ be a group (viewed as category). A functor $F: sans(bold(B)G) -> sans("Set")$ consists of
   + the single object $*$ maps to some object $X$ in $sans("Set")$
   + each morphism $g in sans(bold(B)G)(*,*) = G$ maps to some morphism $F(g): X -> X$ in $sans("Set")$

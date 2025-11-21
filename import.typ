@@ -6,5 +6,6 @@
 #let rainbow = cosmos.rainbow
 #let fancy = cosmos.fancy
 #let simple = cosmos.simple
+#import "commutative-diagram.typ":*
 
 #let idea-box = tip-box.with(title: "Idea")

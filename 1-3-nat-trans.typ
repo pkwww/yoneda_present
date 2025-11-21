@@ -1,1 +1,77 @@
+#import "import.typ":*
+
 == Natural Transformation
+=== Motivation
+Let $V$ be a finite dimensional vector space with field $k$. The dual space $V^* = "Hom"(V, k)$ is the set of linear functionals from $V -> k$.
+
+Given a basis ${e_i}$ in V, we can construct a dual basis ${e^*_i}$ in $V^*$ defined by 
+$e^*_i(e_j) = cases(
+  1 "if" i = j,
+  0 "if" i != j,
+)$ \
+Also, given a linear map $f: V -> W$, define the dual map $f^*: W^* -> V^*$ by $f^*(phi) = phi compose f$. Thus we defined a contravariant functor $(-)^*: sans("Vect"_k)^"op" -> sans("Vect"_k)$. Note that $V tilde.equiv V^*$.\
+Furthermore, we can construct $V^(**)$ so that $V tilde.equiv V^* tilde.equiv V^(**)$.
+
+However, there is a more direct way to construct a map from $V$ to $V^(**)$ without choosing a basis. For each $v in V$, define 
+$ (-)^(**): V &-> (V -> k) -> k \
+v &mapsto "eval"_v $
+where $"eval"_(v)(phi) = phi(v)$. This $(-)^(**)$ directly defines an isomorphism between $V$ and $V^(**)$ and it does not depend on the choice of basis.
+
+To formalise this, consider the following diagram:
+#align(center)[
+  #grid-diagram(
+    columns: 2,
+    align: top,
+    commutative-diagram(
+      node((0, 0), $V$),
+      node((0, 1), $W$),
+      node((1, 0), $V^(**)$),
+      node((1, 1), $W^(**)$),
+      arr((0, 0), (0, 1), $f$),
+      arr((0, 0), (1, 0), $(-)^(**)$, label-pos: right),
+      arr((0, 1), (1, 1), $(-)^(**)$),
+      arr((1, 0), (1, 1), $f^(**)$, label-pos: right),
+    ),
+    commutative-diagram(
+      node((0, 0), $v$),
+      node((0, 1), $f v$),
+      node((1, 0), $"eval"_v$),
+      node((1, 1), $"eval"_(f v) \ "eval"_v compose f^*$),
+      arr((0, 0), (0, 1), none, "def"),
+      arr((0, 0), (1, 0), none, "def"),
+      arr((0, 1), (1, 1), none, "def"),
+      arr((1, 0), (1, 1), none, "def"),
+    )
+  )
+]
+For the bottom right, $("eval"_v compose f^*)(phi) = "eval"_(v)(f^*(phi)) = "eval"_(v)(phi compose f) = (phi compose f)(v) = phi(f(v)) = "eval"_(f v)(phi)$. This shows that the diagram commutes.
+#fancy.definition(title: "Natural transformation")[
+  Let $F, G: cal(C) -> cal(D)$ be two functors. A natural transformation $eta: F => G$ consists of, for every object $c in cal(C)$, a morphism $eta_c: F(c) -> G(c)$ in $cal(D)$, such that the following diagram commutes with any $f: X -> Y$:
+  #align(center)[
+    #commutative-diagram(
+      node((0, 0), $F(X)$),
+      node((0, 1), $F(Y)$),
+      node((1, 0), $G(X)$),
+      node((1, 1), $G(Y)$),
+      arr((0, 0), (0, 1), $F(f)$),
+      arr((0, 0), (1, 0), $eta_X$, label-pos: right),
+      arr((0, 1), (1, 1), $eta_Y$),
+      arr((1, 0), (1, 1), $G(f)$, label-pos: right),
+    )
+  ]
+  i.e. $G(f) compose eta_X = eta_Y compose F(f)$
+
+  If all $eta_c$ are isomorphisms, then $eta$ is called a natural isomorphism.
+]
+A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C))$ in $cal(D)$ indexed by objects in $cal(C)$.
+#note-box()[
+  Terminology: Sometimes we say "the morphisms are natural", leaving implicit for the source and target functors and categories.
+]
+
+#example(title: "Question")[
+  What are the functors in the vector space example above?
+]
+
+#example[
+  Let $G, H$ be group and $sans(bold(B)G), sans(bold(B)H)$ be the corresponding one-object categories. A functor $F: sans(bold(B)G) -> sans(bold(B)H)$
+]
