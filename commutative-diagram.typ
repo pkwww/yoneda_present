@@ -1,3 +1,4 @@
+#import "@preview/commute:0.3.0": node, arr, commutative-diagram
 #let grid-diagram(
   columns: 1,
   rows: 1,
@@ -16,30 +17,39 @@
   )
 }
 
-// #align(center)[
-//   #grid(
-//     columns: 2,
-//     column-gutter: 10pt,
-//     align: top,
-//     commutative-diagram(
-//       node((0, 0), $V$),
-//       node((0, 1), $W$),
-//       node((1, 0), $V^(**)$),
-//       node((1, 1), $W^(**)$),
-//       arr((0, 0), (0, 1), $f$),
-//       arr((0, 0), (1, 0), $(-)^(**)$, label-pos: right),
-//       arr((0, 1), (1, 1), $(-)^(**)$),
-//       arr((1, 0), (1, 1), $f^(**)$, label-pos: right),
-//     ),
-//     commutative-diagram(
-//       node((0, 0), $v$),
-//       node((0, 1), $f v$),
-//       node((1, 0), $"eval"_v$),
-//       node((1, 1), $"eval"_(f v) \ "eval"_v compose f^*$),
-//       arr((0, 0), (0, 1), none, "def"),
-//       arr((0, 0), (1, 0), none, "def"),
-//       arr((0, 1), (1, 1), none, "def"),
-//       arr((1, 0), (1, 1), none, "def"),
-//     )
-//   )
-// ]
+#let nat-trans(
+  nodes,
+  arrows,
+  use-def: false,
+  node-padding: (70pt, 70pt)
+) = {
+  let arrow-specs = if use-def {
+    (
+      arr((0, 0), (0, 1), none, "def"),
+      arr((0, 0), (1, 0), none, "def"),
+      arr((0, 1), (1, 1), none, "def"),
+      arr((1, 0), (1, 1), none, "def"),
+    )
+  } else {
+    (
+      arr((0, 0), (0, 1), arrows.at(0)),
+      arr((0, 0), (1, 0), arrows.at(1), label-pos: right),
+      arr((0, 1), (1, 1), arrows.at(2)),
+      arr((1, 0), (1, 1), arrows.at(3), label-pos: right),
+    )
+  }
+  
+  commutative-diagram(
+    node-padding: node-padding,
+    node((0, 0), nodes.at(0)),
+    node((0, 1), nodes.at(1)),
+    node((1, 0), nodes.at(2)),
+    node((1, 1), nodes.at(3)),
+    ..arrow-specs,
+  )
+}
+
+#let nat-trans-el(
+  nodes,
+  node-padding: (70pt, 70pt)
+) = nat-trans(nodes, none, use-def: true, node-padding: node-padding)

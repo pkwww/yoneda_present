@@ -22,25 +22,12 @@ To formalise this, consider the following diagram:
   #grid-diagram(
     columns: 2,
     align: top,
-    commutative-diagram(
-      node((0, 0), $V$),
-      node((0, 1), $W$),
-      node((1, 0), $V^(**)$),
-      node((1, 1), $W^(**)$),
-      arr((0, 0), (0, 1), $f$),
-      arr((0, 0), (1, 0), $(-)^(**)$, label-pos: right),
-      arr((0, 1), (1, 1), $(-)^(**)$),
-      arr((1, 0), (1, 1), $f^(**)$, label-pos: right),
+    nat-trans(
+      ($V$, $W$, $V^(**)$, $W^(**)$),
+      ($f$, $(-)^(**)$, $(-)^(**)$, $f^(**)$),
     ),
-    commutative-diagram(
-      node((0, 0), $v$),
-      node((0, 1), $f v$),
-      node((1, 0), $"eval"_v$),
-      node((1, 1), $"eval"_(f v) \ "eval"_v compose f^*$),
-      arr((0, 0), (0, 1), none, "def"),
-      arr((0, 0), (1, 0), none, "def"),
-      arr((0, 1), (1, 1), none, "def"),
-      arr((1, 0), (1, 1), none, "def"),
+    nat-trans-el(
+      ($v$, $f v$, $"eval"_v$, $"eval"_(f v) \ "eval"_v compose f^*$),
     )
   )
 ]
@@ -49,15 +36,9 @@ $("eval"_v compose f^*)(phi) = "eval"_(v)(f^*(phi)) = "eval"_(v)(phi compose f) 
 #fancy.definition(title: "Natural transformation")[
   Let $F, G: cal(C) -> cal(D)$ be two functors. A natural transformation $eta: F => G$ consists of, for every object $c in cal(C)$, a morphism $eta_c: F(c) -> G(c)$ in $cal(D)$, such that the following diagram commutes with any $f: X -> Y$:
   #align(center)[
-    #commutative-diagram(
-      node((0, 0), $F(X)$),
-      node((0, 1), $F(Y)$),
-      node((1, 0), $G(X)$),
-      node((1, 1), $G(Y)$),
-      arr((0, 0), (0, 1), $F(f)$),
-      arr((0, 0), (1, 0), $eta_X$, label-pos: right),
-      arr((0, 1), (1, 1), $eta_Y$),
-      arr((1, 0), (1, 1), $G(f)$, label-pos: right),
+    #nat-trans(
+      ($F(X)$, $F(Y)$, $G(X)$, $G(Y)$),
+      ($F(f)$, $eta_X$, $eta_Y$, $G(f)$),
     )
   ]
   i.e. $G(f) compose eta_X = eta_Y compose F(f)$
@@ -77,15 +58,9 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C
   Let $G, H$ be group and $sans(bold(B)G), sans(bold(B)H)$ be the corresponding one-object categories. Recall that a functor $F: sans(bold(B)G) -> sans(bold(B)H)$ is just a homomorphism. What are the natural transformations between two such functors $F, G$? \
   Since there is only one object $star$ in $sans(bold(B)G)$, a natural transformation $eta: F => G$ consists of a single morphism $eta_star: F(star) -> G(star)$ in $sans(bold(B)H)$, denote as $h$. Consider the following naturality square:
   #align(center)[
-    #commutative-diagram(
-      node((0, 0), $star$),
-      node((0, 1), $star$),
-      node((1, 0), $star$),
-      node((1, 1), $star$),
-      arr((0, 0), (0, 1), $F g$),
-      arr((0, 0), (1, 0), $h$, label-pos: right),
-      arr((0, 1), (1, 1), $h$),
-      arr((1, 0), (1, 1), $G g$, label-pos: right),
+    #nat-trans(
+      ($star$, $star$, $star$, $star$),
+      ($F g$, $h$, $h$, $G g$),
     )
   ]
   i.e. $h compose F g = G g compose h <=> h compose F g compose h^(-1) = G g$. This means that $h$ conjugates the image of $F$ to the image of $G$.
@@ -97,25 +72,12 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C
     #grid-diagram(
       columns: 2,
       align: top,
-      commutative-diagram(
-        node((0, 0), $O Y$),
-        node((0, 1), $O X$),
-        node((1, 0), $C X$),
-        node((1, 1), $C Y$),
-        arr((0, 0), (0, 1), $O f$),
-        arr((0, 0), (1, 0), $(-)^c$, label-pos: right),
-        arr((0, 1), (1, 1), $(-)^c$),
-        arr((1, 0), (1, 1), $C f$, label-pos: right),
+      nat-trans(
+        ($O Y$, $O X$, $C X$, $C Y$),
+        ($O f$, $(-)^c$, $(-)^c$, $C f$),
       ),
-      commutative-diagram(
-        node((0, 0), $U$),
-        node((0, 1), $f^(-1) U$),
-        node((1, 0), $U^c$),
-        node((1, 1), $(f^(-1)U)^c \ f^(-1)(U^c)$),
-        arr((0, 0), (0, 1), none, "def"),
-        arr((0, 0), (1, 0), none, "def"),
-        arr((0, 1), (1, 1), none, "def"),
-        arr((1, 0), (1, 1), none, "def"),
+      nat-trans-el(
+        ($U$, $f^(-1) U$, $U^c$, $(f^(-1)U)^c \ f^(-1)(U^c)$),
       )
     )
   ]
@@ -131,16 +93,10 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C
 #example[
   (Hom functors). Given $f: A -> B, h: X -> Y$, consider the following square:
   #align(center)[
-    #commutative-diagram(
+    #nat-trans(
+      ($"Hom"(B, X)$, $"Hom"(B, Y)$, $"Hom"(A, X)$, $"Hom"(A, Y)$),
+      ($"Hom"(B, h) = h compose -$, $"Hom"(f, X) = - compose f$, $- compose f = "Hom"(f, Y)$, $"Hom"(A, h) = h compose -$),
       node-padding: (140pt, 80pt),
-      node((0, 0), $"Hom"(B, X)$),
-      node((0, 1), $"Hom"(B, Y)$),
-      node((1, 0), $"Hom"(A, X)$),
-      node((1, 1), $"Hom"(A, Y)$),
-      arr((0, 0), (0, 1), $"Hom"(B, h) = h compose -$),
-      arr((0, 0), (1, 0), $"Hom"(f, X) = - compose f$, label-pos: right),
-      arr((0, 1), (1, 1), $- compose f = "Hom"(f, Y)$),
-      arr((1, 0), (1, 1), $"Hom"(A, h) = h compose -$, label-pos: right),
     )
   ]
   if $g: B -> X$, we have $(h compose g) compose f = h compose (g compose f)$ by associativity. Hence the square commutes. Thus,
@@ -166,6 +122,7 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C
   + composition is given by component-wise composition of natural transformations. To show that this acctually yields a natural transformation, we need to check if the outer rectangle of the following diagram commutes (exercise):
   #align(center)[
     #commutative-diagram(
+      node-padding: (50pt, 50pt),
       node((0, 0), $F(X)$),
       node((0, 1), $F(Y)$),
       node((1, 0), $G(X)$),
