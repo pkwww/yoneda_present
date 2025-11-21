@@ -2,7 +2,7 @@
 
 == Functor
 #fancy.definition(title: "Functor")[
-  A (covariant) functor $F: cal(C) -> cal(D)$ between $cal(C)$ and $cal(D)$ consists of
+  A (covariant) functor $F: cal(C) -> cal(D)$ from $cal(C)$ to $cal(D)$ consists of
   + for each object $X in cal(C)$, an object $F(X) in cal(D)$
   + for each morphism $f:X -> Y$ in $cal(C)$, a morphism $F(f): F(X) -> F(Y)$ in $cal(D)$. (In programming, this is known as `fmap`)
   satisfying the functorial laws
@@ -22,13 +22,12 @@
 #proof[
   Let $g: Y -> X$ be the inverse of $f$. Then $F(f) compose F(g) = F(f compose g) = F(id_Y) = id_(F(Y))$ and similarly $F(g) compose F(f) = id_(F(X))$. Thus, $F(g)$ is the inverse of $F(f)$.
 ]
-
+#v(0.5em)
 #example[
-  Let $sans(bold(B)G), sans(bold(B)H)$ be two groups (viewed as one-object categories). A functor $F: sans(bold(B)G) -> sans(bold(B)H)$ consists of
+  Let $sans(bold(B)G), sans(bold(B)H)$ be two groups (viewed as categories). A functor $F: sans(bold(B)G) -> sans(bold(B)H)$ consists of
   + the single object $star$ maps to the single object $star$
   + each morphism $g in sans(bold(B)G)(star,star) = G$ maps to some morphism $F(g): star -> star$ in $sans(bold(B)H)$, which is just an element $h in H$.
-  The functoriality make sure that $F(id_star) = id_star$ and $F(g_1 g_2) = F(g_1) F(g_2)$. \
-  This is just a group homomorphism.
+  The functoriality make sure that $F(id_star) = id_star$ and $F(g_1 g_2) = F(g_1) F(g_2)$, which suggest that $F$ is just a group homomorphism.
 ]
 
 #example[
@@ -61,10 +60,13 @@
 ]
 
 #fancy.definition(title: "Hom functor")[
-  The Hom functor $"Hom"_cal(C)(A, -): cal(C) -> sans("Set")$ or simply $h_A$ for a fixed object $A in cal(C)$ maps
-  + each object $X in cal(C)$ to the hom set $"Hom"_cal(C)(A, X)$. \ (explicit typing: $X -> (A -> X)$)
-  + each morphism $f: X -> Y$ to the function $"Hom"_cal(C)(A, f): "Hom"_cal(C)(A, X) -> "Hom"_cal(C)(A, Y)$ defined by $"Hom"_cal(C)(A, f) = f compose -$. \ (explicit typing: $(X -> Y) -> (A -> X) -> (A -> Y)$)
-  Similarly, we have the contravariant Hom functor $h^X = "Hom"_cal(C)(-, X): cal(C)^"op" -> sans("Set")$ mapping each morphism $f: A -> B$ to the function $"Hom"_cal(C)(f, X): "Hom"_cal(C)(B, X) -> "Hom"_cal(C)(A, X)$ defined by $"Hom"_cal(C)(f, X) = - compose f$.
+  The Hom functor $"Hom"(A, -): cal(C) -> sans("Set")$ or simply $h_A$ for a fixed object $A in cal(C)$ maps
+  + each object $X in cal(C)$ to the hom set $"Hom"(A, X)$. \ (explicit typing: $X -> (A -> X)$)
+  + each morphism $f: X -> Y$ to the function 
+  $ "Hom"(A, f)&: "Hom"(A, X) -> "Hom"(A, Y) \ "Hom"(A, f) &= f compose - $  (explicit typing: $(X -> Y) -> (A -> X) -> (A -> Y)$)
+
+  Similarly, we have the contravariant Hom functor $h^X = "Hom"(-, X): cal(C)^"op" -> sans("Set")$ mapping each morphism $f: A -> B$ to the function 
+  $ "Hom"(f, X)&: "Hom"(B, X) -> "Hom"(A, X) \ "Hom"(f, X) &= - compose f $
   We can write more compactly as $h_(A)(X), h_(A)(f), h^(X)(A), h^(X)(f)$.
 ]
 #fancy.definition(title: "Product category")[
@@ -76,9 +78,9 @@
 ]
 #definition(title: "Hom bifunctor")[
   Define $"Hom"(-, -): cal(C)^"op" times cal(C) -> sans("Set")$ by
-  + objects: $(A, X) mapsto "Hom"_cal(C)(A, X)$
-  + morphisms: for a pair $(f, h): (A' -> A, X -> X')$ maps to $"Hom"_cal(C)(A, X) -> "Hom"_cal(C)(A', X')$ by $g mapsto h compose g compose f$
+  + objects: $(A, X) mapsto "Hom"(A, X)$
+  + morphisms: for a pair $(f, h): (A' -> A, X -> X')$ maps to $"Hom"(A, X) -> "Hom"(A', X')$ by $g mapsto h compose g compose f$
 ]
-#warning-box[
+#note-box[
   The image of $F: cal(C) -> cal(D)$ is not necessarily a subcategory of $cal(D)$. Idea: when $c_1, c_2$ both map to the same object $d$, then for any two $c_1 -> c_2$, their images are both morphisms $d -> d$ which is composable, but the sources cannot be composed since they don't have matching domain and codomain.
 ]

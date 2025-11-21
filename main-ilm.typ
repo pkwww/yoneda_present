@@ -1,8 +1,16 @@
 #import "import.typ":*
 
+// override ilm defaults
+#set text(
+  font: (
+    (name: "Libertinus Serif", covers: "latin-in-cjk"), 
+    "Noto Serif TC"
+  ), 
+)
+
 #show: ilm.with(
   title: [Yoneda Lemma],
-  author: "pkw",
+  author: "pkw 榮 よ",
   date: datetime.today(),
   // abstract: [#lorem(30)],
   // table-of-contents: none,
@@ -13,19 +21,27 @@
   listing-index: (enabled: true)
 )
 
-#show raw: set text(font: ("Libertinus Serif", "Noto Serif TC"), size: 9pt)
 #show math.equation: set text(font: "New Computer Modern Math")
 #show math.equation.where(block: false): box
+#set math.equation(numbering: none)
 #show: show-theorion
 
-#set text(lang: "en")
+// override ilm defaults again since previous is re-override in ilm
+#set text(
+  font: (
+    (name: "Libertinus Serif", covers: "latin-in-cjk"), 
+    "Noto Serif TC"
+  ), 
+  size: 12pt, 
+  lang: "en"
+)
 #set enum(indent: 1em)
 #set list(indent: 1em)
 
 #counter(page).update(1)
 
 = Basic Notions in Category Theory
-// #include "1-1-category.typ"
-// #include "1-2-functor.typ"
+#include "1-1-category.typ"
+#include "1-2-functor.typ"
 #include "1-3-nat-trans.typ"
 // = Yoneda Lemma, Representation, Universality

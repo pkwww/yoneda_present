@@ -70,7 +70,7 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C
 ]
 
 #example(title: "Question")[
-  What are the functors in the vector space example above?
+  What are the functors in the above vector space example?
 ]
 
 #example[
@@ -119,7 +119,7 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C
       )
     )
   ]
-  The bottom right equality holds by simple set theoretic arguments. Thus commute the diagram. \
+  The bottom right equality holds by simple set theoretic arguments. Thus commute the square. \
   Thus, the complement operation $(-)^c$ defines a natural isomorphism.
 ]
 
@@ -143,4 +143,43 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C
       arr((1, 0), (1, 1), $"Hom"(A, h) = h compose -$, label-pos: right),
     )
   ]
+  if $g: B -> X$, we have $(h compose g) compose f = h compose (g compose f)$ by associativity. Hence the square commutes. Thus,
+  + $- compose f$ is a natural transformation $"Hom"(B, -) => "Hom"(A, -)$
+  + $h compose -$ is a natural transformation $"Hom"(-, X) => "Hom"(-, Y)$
+  Recall #theorion-restate(
+    filter: <thm:iso-repr>, 
+    render: it => (prefix: none, title: "", full-title: auto, body) => strong[#prefix]
+  ). This result can be strengthened from $"Hom"(c, X) -> "Hom"(c, Y)$ is a bijection to saying $"Hom"(-, X) tilde.equiv "Hom"(-, Y)$ a *natural isomorphism*.
+]
+#theorem(title: "Isomorphism is representable, naturally")[
+  The following are equivalent:
+  + $f: X -> Y$ is an isomorphism
+  + $"Hom"(-, X) tilde.equiv "Hom"(-, Y)$ is naturally isomorphic
+  + $"Hom"(Y, -) tilde.equiv "Hom"(X, -)$ is naturally isomorphic
+]<thm:iso-repr-nat>
+
+#fancy.definition(title: "Functor category")[
+  Given two categories $cal(C)$ and $cal(D)$, the functor category $[cal(C), cal(D)]$ consists of
+  + objects: functors $F: cal(C) -> cal(D)$
+  + morphisms: natural transformations between functors
+  + identity morphism: $id_F = {id_(F X)}_(X in cal(C))$
+  + composition is given by component-wise composition of natural transformations. To show that this acctually yields a natural transformation, we need to check if the outer rectangle of the following diagram commutes (exercise):
+  #align(center)[
+    #commutative-diagram(
+      node((0, 0), $F(X)$),
+      node((0, 1), $F(Y)$),
+      node((1, 0), $G(X)$),
+      node((1, 1), $G(Y)$),
+      node((2, 0), $H(X)$),
+      node((2, 1), $H(Y)$),
+      arr((0, 0), (0, 1), $F(f)$),
+      arr((0, 0), (1, 0), $alpha_X$, label-pos: right),
+      arr((0, 1), (1, 1), $alpha_Y$),
+      arr((1, 0), (1, 1), $G(f)$, label-pos: right),
+      arr((1, 0), (2, 0), $beta_X$, label-pos: right),
+      arr((1, 1), (2, 1), $beta_Y$),
+      arr((2, 0), (2, 1), $H(f)$, label-pos: right),
+    )
+  ]
+  Identity and associativity follows from the component-wise definition. 
 ]

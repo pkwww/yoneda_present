@@ -108,12 +108,12 @@
 #note-box[
   We will not dive too much into opposite category. In particular, we will not give concrete examples of opposite category since they are quite non-trivial (e.g. $sans("Set")^"op"$ is the category of complete atomic boolean algebra, wtf). Fortunately, in our case, $cal(C)^"op"$ usually only appear in domain or codomain of functors.
 ]
-#proposition[
+#theorem(title: "Isomorphism is representable")[
   The following are equivalent:
   + $f: X -> Y$ is an isomorphism
   + for any $c in cal(C)$, the map $f compose - : "Hom"(c, X) -> "Hom"(c, Y)$ is a bijection. ($f compose -$ is also written as $f_*$)
   + for any $c in cal(C)$, the map $- compose f: "Hom"(Y, c) -> "Hom"(X, c)$ is a bijection. ($- compose f$ is also written as $f^*$)
-]<prop:iso-repr>
+]<thm:iso-repr>
 #proof()[
   We first prove $(1) <=> (2)$, then use dual argument to get $(1) <=> (3)$.\
   $(1) => (2)$: Suppose $f: X -> Y$ is an isomorphism, with inverse $f^(-1): Y -> X$. \
