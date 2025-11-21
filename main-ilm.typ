@@ -1,12 +1,11 @@
 #import "import.typ":*
 
-#set text(lang: "en")
-
 #show: ilm.with(
   title: [Yoneda Lemma],
   author: "pkw",
   date: datetime.today(),
   // abstract: [#lorem(30)],
+  table-of-contents: none,
   // bibliography: bibliography("refs.bib"),
   chapter-pagebreak: false,
   figure-index: (enabled: true),
@@ -18,7 +17,9 @@
 #show math.equation: set text(font: "New Computer Modern Math")
 #show: show-theorion
 
-#set enum(indent: 1.5em)
+#set text(lang: "en")
+#set enum(indent: 1em)
+#set list(indent: 1em)
 
 = Basic Notions in Category Theory
 #include "1-1-category.typ"
