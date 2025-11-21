@@ -37,9 +37,9 @@
 ]
 #example[
   A monoid $M$ can be viewd as a category (sometimes denoted as $sans(bold(B)M)$):
-  + Object: a single dummy object $*$
-  + Morphism: elements of $M$, i.e., for each $m in M$, there is a morphism $f_m: * -> *$
-  + Identity morphism: the identity element $e$ of $M$ corresponds to the identity morphism $id_*: * -> *$
+  + Object: a single dummy object $star$
+  + Morphism: elements of $M$, i.e., for each $m in M$, there is a morphism $f_m: star -> star$
+  + Identity morphism: the identity element $e$ of $M$ corresponds to the identity morphism $id_star: star -> star$
   + Composition is the monoid multiplication
   + associativity and identity laws follow from those of monoids.
 ]
@@ -64,7 +64,7 @@
   A category $cal(G)$ is called a groupoid if all morphisms in $cal(G)$ are isomorphisms.
 ]
 #example[
-  A group $G$ can be viewed as a category ($sans(bold(B)G)$) similar to monoid, with a single object {$*$} and morphisms are elements of $G$. Since all elements in a group are invertible, all morphisms in $sans(bold(B)G)$ are isomorphisms. Thus, $sans(bold(B)G)$ is a groupoid with a single object.
+  A group $G$ can be viewed as a category ($sans(bold(B)G)$) similar to monoid, with a single object {$star$} and morphisms are elements of $G$. Since all elements in a group are invertible, all morphisms in $sans(bold(B)G)$ are isomorphisms. Thus, $sans(bold(B)G)$ is a groupoid with a single object.
 ]
 
 #example[

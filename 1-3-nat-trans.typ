@@ -44,7 +44,8 @@ To formalise this, consider the following diagram:
     )
   )
 ]
-For the bottom right, $("eval"_v compose f^*)(phi) = "eval"_(v)(f^*(phi)) = "eval"_(v)(phi compose f) = (phi compose f)(v) = phi(f(v)) = "eval"_(f v)(phi)$. This shows that the diagram commutes.
+For the bottom right, \
+$("eval"_v compose f^*)(phi) = "eval"_(v)(f^*(phi)) = "eval"_(v)(phi compose f) = (phi compose f)(v) = phi(f(v)) = "eval"_(f v)(phi)$. This shows that the diagram commutes.
 #fancy.definition(title: "Natural transformation")[
   Let $F, G: cal(C) -> cal(D)$ be two functors. A natural transformation $eta: F => G$ consists of, for every object $c in cal(C)$, a morphism $eta_c: F(c) -> G(c)$ in $cal(D)$, such that the following diagram commutes with any $f: X -> Y$:
   #align(center)[
@@ -73,5 +74,73 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C
 ]
 
 #example[
-  Let $G, H$ be group and $sans(bold(B)G), sans(bold(B)H)$ be the corresponding one-object categories. A functor $F: sans(bold(B)G) -> sans(bold(B)H)$
+  Let $G, H$ be group and $sans(bold(B)G), sans(bold(B)H)$ be the corresponding one-object categories. Recall that a functor $F: sans(bold(B)G) -> sans(bold(B)H)$ is just a homomorphism. What are the natural transformations between two such functors $F, G$? \
+  Since there is only one object $star$ in $sans(bold(B)G)$, a natural transformation $eta: F => G$ consists of a single morphism $eta_star: F(star) -> G(star)$ in $sans(bold(B)H)$, denote as $h$. Consider the following naturality square:
+  #align(center)[
+    #commutative-diagram(
+      node((0, 0), $star$),
+      node((0, 1), $star$),
+      node((1, 0), $star$),
+      node((1, 1), $star$),
+      arr((0, 0), (0, 1), $F g$),
+      arr((0, 0), (1, 0), $h$, label-pos: right),
+      arr((0, 1), (1, 1), $h$),
+      arr((1, 0), (1, 1), $G g$, label-pos: right),
+    )
+  ]
+  i.e. $h compose F g = G g compose h <=> h compose F g compose h^(-1) = G g$. This means that $h$ conjugates the image of $F$ to the image of $G$.
+]
+
+#example[
+  The open set functor $O(-)$ and the close set functor $C(-)$ are naturally isomorphic.
+  #align(center)[
+    #grid-diagram(
+      columns: 2,
+      align: top,
+      commutative-diagram(
+        node((0, 0), $O Y$),
+        node((0, 1), $O X$),
+        node((1, 0), $C X$),
+        node((1, 1), $C Y$),
+        arr((0, 0), (0, 1), $O f$),
+        arr((0, 0), (1, 0), $(-)^c$, label-pos: right),
+        arr((0, 1), (1, 1), $(-)^c$),
+        arr((1, 0), (1, 1), $C f$, label-pos: right),
+      ),
+      commutative-diagram(
+        node((0, 0), $U$),
+        node((0, 1), $f^(-1) U$),
+        node((1, 0), $U^c$),
+        node((1, 1), $(f^(-1)U)^c \ f^(-1)(U^c)$),
+        arr((0, 0), (0, 1), none, "def"),
+        arr((0, 0), (1, 0), none, "def"),
+        arr((0, 1), (1, 1), none, "def"),
+        arr((1, 0), (1, 1), none, "def"),
+      )
+    )
+  ]
+  The bottom right equality holds by simple set theoretic arguments. Thus commute the diagram. \
+  Thus, the complement operation $(-)^c$ defines a natural isomorphism.
+]
+
+#example[
+  Let $"GL"_n: sans("CRing") -> sans("Grp")$ sending a commutative ring $R$ to its group of invertible $n times n$ matrices over $R$. Let $(-)^times$ sending $R$ to its multiplicative group of units (i.e. multiplicative invertible elements). Taking determinant of a matrix is a natural transformation $det: "GL"_n => (-)^times$. \
+  Exercise: verify the naturality condition.
+]
+
+#example[
+  (Hom functors). Given $f: A -> B, h: X -> Y$, consider the following square:
+  #align(center)[
+    #commutative-diagram(
+      node-padding: (140pt, 80pt),
+      node((0, 0), $"Hom"(B, X)$),
+      node((0, 1), $"Hom"(B, Y)$),
+      node((1, 0), $"Hom"(A, X)$),
+      node((1, 1), $"Hom"(A, Y)$),
+      arr((0, 0), (0, 1), $"Hom"(B, h) = h compose -$),
+      arr((0, 0), (1, 0), $"Hom"(f, X) = - compose f$, label-pos: right),
+      arr((0, 1), (1, 1), $- compose f = "Hom"(f, Y)$),
+      arr((1, 0), (1, 1), $"Hom"(A, h) = h compose -$, label-pos: right),
+    )
+  ]
 ]
