@@ -3,7 +3,7 @@
 == Universal Construction 
 #quote(block: true)[ $dots.h$ but not that universal, for now]
 #fancy.definition(title: "Initial, terminal object")[
-  An *initial object* $bot$ in $cal(C)$ is an object such that for every object $X$ in $cal(C)$, there #underline[exists a unique] morphism $bot -> X$. Dually, a *terminal object* $top$ in $cal(C)$ is an object such that for every object $X$ in $cal(C)$, there #underline[exists a unique] morphism $X -> top$.
+  An *initial object* $bot$ in $calc$ is an object such that for every object $X$ in $calc$, there #underline[exists a unique] morphism $bot -> X$. Dually, a *terminal object* $top$ in $calc$ is an object such that for every object $X$ in $calc$, there #underline[exists a unique] morphism $X -> top$.
   An object that is both initial and terminal is called a *zero object*, denote as $0$.
 ]
 #note-box[
@@ -16,7 +16,7 @@
   Notice that the only unique morphism $bot -> bot$ must be $id_bot$. Then given two $bot_1, bot_2$, we have $bot_1 arrows.lr bot_2$, composing the morphism must $id$. Hence isomophic.
 ]
 #property[
-  Initial and terminal object are dual to each other. That is, a initial object in $cal(C)$ is a terminal object in $cal(C)^"op"$.
+  Initial and terminal object are dual to each other. That is, a initial object in $calc$ is a terminal object in $calc^op$.
 ]
 
 #v(1em)
@@ -25,11 +25,11 @@
 ]
 
 #example[
-  Empty set and singleton set are the initial and terminal object (resp.) in $sans("Set")$.
+  Empty set and singleton set are the initial and terminal object (resp.) in $Set$.
 ]
 
 #example[
-  The trivial group is the zero object in $sans("Grp")$.
+  The trivial group is the zero object in $grp$.
 ]
 
 #example[
@@ -37,7 +37,7 @@
 ]
 
 #example[
-  $k$ is the initial object in $sans("Vect"_k)$, while the trivial vector space is the terminal object.
+  $k$ is the initial object in $vectk$, while the trivial vector space is the terminal object.
 ]
 
 #example[
@@ -45,7 +45,7 @@
 ]
 
 #fancy.definition(title: "product")[
-  Give two objects $X, Y$ in $cal(C)$, their *product* $X times Y$ is an object together with two projection morphisms $pi_1: X times Y -> X$ and $pi_2: X times Y -> Y$, such that for any object $Z$ with morphisms $f_1: Z -> X$ and $f_2: Z -> Y$, there #underline[exists a unique] morphism $accent(f, tilde): Z -> X times Y$ making the following diagram commute:
+  Give two objects $X, Y$ in $calc$, their *product* $X times Y$ is an object together with two projection morphisms $pi_1: X times Y -> X$ and $pi_2: X times Y -> Y$, such that for any object $Z$ with morphisms $f_1: Z -> X$ and $f_2: Z -> Y$, there #underline[exists a unique] morphism $accent(f, tilde): Z -> X times Y$ making the following diagram commute:
   #align(center)[
     #commutative-diagram(
       node-padding: (35pt, 35pt),
@@ -64,17 +64,17 @@
 ]
 Dually,
 #fancy.definition(title: "coproduct")[
-  Given two objects $A, B$ in $cal(C)$, their *coproduct* $A product.co B$ is an object together with two injection morphisms $i_1: A -> A product.co B$ and $i_2: B -> A product.co B$, such that for any object $Z$ with morphisms $f_1: A -> Z$ and $f_2: B -> Z$, there #underline[exists a unique] morphism $accent(f, tilde): A product.co B -> Z$ making the following diagram commute:
+  Given two objects $A, B$ in $calc$, their *coproduct* $A coprod B$ is an object together with two injection morphisms $i_1: A -> A coprod B$ and $i_2: B -> A coprod B$, such that for any object $Z$ with morphisms $f_1: A -> Z$ and $f_2: B -> Z$, there #underline[exists a unique] morphism $accent(f, tilde): A coprod B -> Z$ making the following diagram commute:
   #align(center)[
     #commutative-diagram(
       node-padding: (35pt, 35pt),
       node((-1, 0), $Z$),
-      node((0, 0), $A product.co B$),
+      node((0, 0), $A coprod B$),
       node((1, -1), $A$),
       node((1, 1), $B$),
-      arr($A product.co B$, $Z$, $exists! accent(f, tilde)$, label-pos:right, "dashed"),
-      arr($A$, $A product.co B$, $i_1$, label-pos: right),
-      arr($B$, $A product.co B$, $i_2$),
+      arr($A coprod B$, $Z$, $exists! accent(f, tilde)$, label-pos:right, "dashed"),
+      arr($A$, $A coprod B$, $i_1$, label-pos: right),
+      arr($B$, $A coprod B$, $i_2$),
       arr($A$, $Z$, $f_1$, curve: 30deg),
       arr($B$, $Z$, $f_2$, label-pos: right, curve: -30deg),
     )
@@ -85,7 +85,7 @@ Dually,
   The product (coproduct) is unique up to isomorphism.
 ]
 #property[
-  Product and coproduct are dual to each other. That is, the product of $X, Y$ in $cal(C)$ is the coproduct of $X, Y$ in $cal(C)^"op"$.
+  Product and coproduct are dual to each other. That is, the product of $X, Y$ in $calc$ is the coproduct of $X, Y$ in $calc^op$.
 ]
 
 #example[
@@ -93,11 +93,11 @@ Dually,
 ]
 
 #example[
-  In set-like categories (e.g., $sans("Set")$, $sans("Grp")$, $sans("Ring")$, $sans("Vect"_k)$), the product is the Cartesian product.
+  In set-like categories (e.g., $Set$, $grp$, $sans("Ring")$, $vectk$), the product is the Cartesian product.
 ]
 
 #example[
-  In $sans("Set")$, the coproduct is the disjoint union. In $sans("Grp")$, the coproduct is the free product. In $sans("Vect"_k)$, the coproduct is the direct sum.
+  In $Set$, the coproduct is the disjoint union. In $grp$, the coproduct is the free product. In $vectk$, the coproduct is the direct sum.
 ]
 
 // TODO: pushout, pullback

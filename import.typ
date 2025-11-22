@@ -9,4 +9,17 @@
 #let clouds = cosmos.clouds
 #import "commutative-diagram.typ":*
 
+#let calc = $cal(C)$
+#let cald = $cal(D)$
+#let unlp(var) = $sans(bold(B)var)$ // unloop
+#let Set = $sans("Set")$
+#let grp = $sans("Grp")$
+#let vectk = $sans("Vect"_k)$
+#let op = "op"
+
 #let idea-box = tip-box.with(title: "Idea")
+#let iso = symbol(sym.tilde.equiv)
+// #let natiso = $limits(tilde.equiv)^("nat")$
+#let natiso = $attach(iso, t: "nat")$
+#let coprod = symbol(sym.product.co)
+#let yo = symbol("よ")

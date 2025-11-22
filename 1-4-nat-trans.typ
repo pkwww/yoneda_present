@@ -9,8 +9,8 @@ $e^*_i(e_j) = cases(
   1 "if" i = j,
   0 "if" i != j,
 )$ \
-Also, given a linear map $f: V -> W$, define the dual map $f^*: W^* -> V^*$ by $f^*(phi) = phi compose f$. Thus we defined a contravariant functor $(-)^*: sans("Vect"_k)^"op" -> sans("Vect"_k)$. Note that $V tilde.equiv V^*$.\
-Furthermore, we can construct $V^(**)$ so that $V tilde.equiv V^* tilde.equiv V^(**)$.
+Also, given a linear map $f: V -> W$, define the dual map $f^*: W^* -> V^*$ by $f^*(phi) = phi compose f$. Thus we defined a contravariant functor $(-)^*: vectk^op -> vectk$. Note that $V iso V^*$.\
+Furthermore, we can construct $V^(**)$ so that $V iso V^* iso V^(**)$.
 
 However, there is a more direct way to construct a map from $V$ to $V^(**)$ without choosing a basis. For each $v in V$, define 
 $ (-)^(**): V &-> (V -> k) -> k \
@@ -34,7 +34,7 @@ To formalise this, consider the following diagram:
 For the bottom right, \
 $("eval"_v compose f^*)(phi) = "eval"_(v)(f^*(phi)) = "eval"_(v)(phi compose f) = (phi compose f)(v) = phi(f(v)) = "eval"_(f v)(phi)$. This shows that the diagram commutes.
 #fancy.definition(title: "Natural transformation")[
-  Let $F, G: cal(C) -> cal(D)$ be two functors. A natural transformation $eta: F => G$ consists of, for every object $c in cal(C)$, a morphism $eta_c: F(c) -> G(c)$ in $cal(D)$, such that the following diagram commutes with any $f: X -> Y$:
+  Let $F, G: calc -> cal(D)$ be two functors. A natural transformation $eta: F => G$ consists of, for every object $c in calc$, a morphism $eta_c: F(c) -> G(c)$ in $cal(D)$, such that the following diagram commutes with any $f: X -> Y$:
   #align(center)[
     #nat-trans(
       ($F(X)$, $F(Y)$, $G(X)$, $G(Y)$),
@@ -45,7 +45,7 @@ $("eval"_v compose f^*)(phi) = "eval"_(v)(f^*(phi)) = "eval"_(v)(phi compose f) 
 
   If all $eta_c$ are isomorphisms, then $eta$ is called a natural isomorphism.
 ]
-A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C))$ in $cal(D)$ indexed by objects in $cal(C)$.
+A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in calc)$ in $cal(D)$ indexed by objects in $calc$.
 #note-box()[
   Terminology: Sometimes we say "the morphisms are natural", leaving implicit for the source and target functors and categories.
 ]
@@ -55,8 +55,8 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C
 ]
 
 #example[
-  Let $G, H$ be group and $sans(bold(B)G), sans(bold(B)H)$ be the corresponding one-object categories. Recall that a functor $F: sans(bold(B)G) -> sans(bold(B)H)$ is just a homomorphism. What are the natural transformations between two such functors $F, G$? \
-  Since there is only one object $star$ in $sans(bold(B)G)$, a natural transformation $eta: F => G$ consists of a single morphism $eta_star: F(star) -> G(star)$ in $sans(bold(B)H)$, denote as $h$. Consider the following naturality square:
+  Let $G, H$ be group and $unlp(G), unlp(H)$ be the corresponding one-object categories. Recall that a functor $F: unlp(G) -> unlp(H)$ is just a homomorphism. What are the natural transformations between two such functors $F, G$? \
+  Since there is only one object $star$ in $unlp(G)$, a natural transformation $eta: F => G$ consists of a single morphism $eta_star: F(star) -> G(star)$ in $unlp(H)$, denote as $h$. Consider the following naturality square:
   #align(center)[
     #nat-trans(
       ($star$, $star$, $star$, $star$),
@@ -86,7 +86,7 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C
 ]
 
 #example[
-  Let $"GL"_n: sans("CRing") -> sans("Grp")$ sending a commutative ring $R$ to its group of invertible $n times n$ matrices over $R$. Let $(-)^times$ sending $R$ to its multiplicative group of units (i.e. multiplicative invertible elements). Taking determinant of a matrix is a natural transformation $det: "GL"_n => (-)^times$. \
+  Let $"GL"_n: sans("CRing") -> grp$ sending a commutative ring $R$ to its group of invertible $n times n$ matrices over $R$. Let $(-)^times$ sending $R$ to its multiplicative group of units (i.e. multiplicative invertible elements). Taking determinant of a matrix is a natural transformation $det: "GL"_n => (-)^times$. \
   Exercise: verify the naturality condition.
 ]
 
@@ -105,20 +105,20 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in cal(C
   Recall #theorion-restate(
     filter: <thm:iso-repr>, 
     render: it => (prefix: none, title: "", full-title: auto, body) => strong[#prefix]
-  ). This result can be strengthened from $"Hom"(c, X) -> "Hom"(c, Y)$ is a bijection to saying $"Hom"(-, X) tilde.equiv "Hom"(-, Y)$ a *natural isomorphism*.
+  ). This result can be strengthened from $"Hom"(c, X) -> "Hom"(c, Y)$ is a bijection to saying $"Hom"(-, X) iso "Hom"(-, Y)$ a *natural isomorphism*.
 ]
 #theorem(title: "Isomorphism is representable, naturally")[
   The following are equivalent:
   + $f: X -> Y$ is an isomorphism
-  + $"Hom"(-, X) tilde.equiv "Hom"(-, Y)$ is naturally isomorphic
-  + $"Hom"(Y, -) tilde.equiv "Hom"(X, -)$ is naturally isomorphic
+  + $"Hom"(-, X) natiso "Hom"(-, Y)$
+  + $"Hom"(Y, -) natiso "Hom"(X, -)$
 ]<thm:iso-repr-nat>
 
 #fancy.definition(title: "Functor category")[
-  Given two categories $cal(C)$ and $cal(D)$, the functor category $[cal(C), cal(D)]$ consists of
-  + objects: functors $F: cal(C) -> cal(D)$
+  Given two categories $calc$ and $cal(D)$, the functor category $[calc, cal(D)]$ consists of
+  + objects: functors $F: calc -> cal(D)$
   + morphisms: natural transformations between functors
-  + identity morphism: $id_F = {id_(F X)}_(X in cal(C))$
+  + identity morphism: $id_F = {id_(F X)}_(X in calc)$
   + composition is given by component-wise composition of natural transformations. To show that this acctually yields a natural transformation, we need to check if the outer rectangle of the following diagram commutes (exercise):
   #align(center)[
     #commutative-diagram(

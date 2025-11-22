@@ -21,7 +21,12 @@
   listing-index: (enabled: true)
 )
 
-#show math.equation: set text(font: "New Computer Modern Math")
+#show math.equation: set text(
+  font: (
+    (name: "New Computer Modern Math"),
+    "Noto Serif TC"
+  )
+)
 #show math.equation.where(block: false): box
 #set math.equation(numbering: none)
 #set math.frac(style: "horizontal")
@@ -48,3 +53,4 @@
 #include "1-3-functor.typ"
 #include "1-4-nat-trans.typ"
 = Yoneda Lemma, Representation, Universality
+#include "2-1-yoneda.typ"
