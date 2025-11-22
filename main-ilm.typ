@@ -42,6 +42,7 @@
 
 = Basic Notions in Category Theory
 #include "1-1-category.typ"
-#include "1-2-functor.typ"
-#include "1-3-nat-trans.typ"
-// = Yoneda Lemma, Representation, Universality
+#include "1-2-universal-prop.typ"
+#include "1-3-functor.typ"
+#include "1-4-nat-trans.typ"
+= Yoneda Lemma, Representation, Universality
