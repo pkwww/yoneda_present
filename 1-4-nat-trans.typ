@@ -55,15 +55,15 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in calc)
 ]
 
 #example[
-  Let $G, H$ be group and $unlp(G), unlp(H)$ be the corresponding one-object categories. Recall that a functor $F: unlp(G) -> unlp(H)$ is just a homomorphism. What are the natural transformations between two such functors $F, G$? \
-  Since there is only one object $star$ in $unlp(G)$, a natural transformation $eta: F => G$ consists of a single morphism $eta_star: F(star) -> G(star)$ in $unlp(H)$, denote as $h$. Consider the following naturality square:
+  Let $G, H$ be group and $unlp(G), unlp(H)$ be the corresponding one-object categories. Recall that a functor $F: unlp(G) -> unlp(H)$ is just a homomorphism. What are the natural transformations between two such functors $F, E$? \
+  Since there is only one object $star$ in $unlp(G)$, a natural transformation $eta: F => E$ consists of a single morphism $eta_star: F(star) -> E(star)$ in $unlp(H)$, denote as $h$. Consider the following naturality square:
   #align(center)[
     #nat-trans(
       ($star$, $star$, $star$, $star$),
-      ($F g$, $h$, $h$, $G g$),
+      ($F g$, $h$, $h$, $E g$),
     )
   ]
-  i.e. $h compose F g = G g compose h <=> h compose F g compose h^(-1) = G g$. This means that $h$ conjugates the image of $F$ to the image of $G$.
+  i.e. $h compose F g = E g compose h <=> h compose F g compose h^(-1) = E g$. This means that $h$ conjugates the image of $F$ to the image of $E$.
 ]
 
 #example[
