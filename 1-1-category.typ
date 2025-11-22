@@ -1,6 +1,7 @@
 #import "import.typ":*
 
 == Category
+#quote(block: true)[ $dots.h$ or, monoidoid]
 #fancy.definition(title: "Category")[
   A category $cal(C)$ consists of the following data:
   + collection of objects (not necessaily a set): $X, Y, Z, ...$
@@ -77,12 +78,9 @@
 
   Fix a point $p$ in $X$, consider all the paths (up to homotopy) from $p$ to itself is called the fundamental group $pi_1(X, p)$.
 ]
-#definition(title: "Subcategory")[
-  A subcategory of a category $cal(C)$ consists of some objects and some morphisms between these chosen objects, s.t. $id_X$ exists and morphism composition is closed. \
-  (Think of submonoid)
-]
+
 #example[
-  (A taste of non-trivial category) Given a category $cal(C)$ and a fix object $c in cal(C)$, the _over category_ $frac(cal(C), c, style: "horizontal")$ is defined as:
+  (A taste of non-trivial category) Given a category $cal(C)$ and a fix object $c in cal(C)$, the *over category* $cal(C) / c$ is defined as:
   + objects: $cal(C)$-morphisms $f: X -> c$
   + morphisms: given two objects $f: X -> c$ and $g: Y -> c$, a morphism from $f$ to $g$ is a $cal(C)$-morphism $h: X -> Y$ such that the following diagram commutes:
   #align(center)[#commutative-diagram(
@@ -94,11 +92,14 @@
     arr($X$, $c$, $f$, label-pos: right),
     arr($Y$, $c$, $g$)
   )]
-  (i.e. $g compose h = f$ or $h >> g = f$)\
-  Excersice: Check that this is indeed a category.
+  i.e. $g compose h = f$. Exercise: Check that this is indeed a category.
+]
+#fancy.definition(title: "Subcategory")[
+  A subcategory of a category $cal(C)$ consists of some objects and some morphisms between these chosen objects, s.t. $id_X$ exists and morphism composition is closed. \
+  (Think of submonoid)
 ]
 #fancy.definition[
-  Let $cal(C)$ be a category. The _opposite category_ $cal(C)^"op"$ consists of:
+  Let $cal(C)$ be a category. The *opposite category* $cal(C)^"op"$ consists of:
   + objects: same as those of $cal(C)$
   + morphisms: for each morphism $f: X -> Y$ in $cal(C)$, there is a morphism $f^"op": Y -> X$ in $cal(C)^"op"$
   such that:
@@ -108,6 +109,23 @@
 #note-box[
   We will not dive too much into opposite category. In particular, we will not give concrete examples of opposite category since they are quite non-trivial (e.g. $sans("Set")^"op"$ is the category of complete atomic boolean algebra, wtf). Fortunately, in our case, $cal(C)^"op"$ usually only appear in domain or codomain of functors.
 ]
+
+#example[
+  Given a category $cal(C)$ and a fix object $c in cal(C)$, the *under category* $c / cal(C)$ is defined as:
+  + objects: $cal(C)$-morphisms $f: c -> X$
+  + morphisms: given two objects $f: c -> X$ and $g: c -> Y$, a morphism from $f$ to $g$ is a $cal(C)$-morphism $h: X -> Y$ such that the following diagram commutes:
+  #align(center)[#commutative-diagram(
+    node-padding: (35pt, 35pt),
+    node((1, 1), $c$),
+    node((0, 0), $X$),
+    node((0, 2), $Y$),
+    arr($X$, $Y$, $h$),
+    arr($c$, $X$, $f$),
+    arr($c$, $Y$, $g$, label-pos: right)
+  )]
+  i.e. $h compose f = g$. This is dual to the over category.
+]
+
 #theorem(title: "Isomorphism is representable")[
   The following are equivalent:
   + $f: X -> Y$ is an isomorphism

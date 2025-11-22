@@ -13,7 +13,7 @@
   author: "pkw 榮 よ",
   date: datetime.today(),
   // abstract: [#lorem(30)],
-  // table-of-contents: none,
+  table-of-contents: none,
   // bibliography: bibliography("refs.bib"),
   chapter-pagebreak: false,
   figure-index: (enabled: true),
@@ -24,6 +24,7 @@
 #show math.equation: set text(font: "New Computer Modern Math")
 #show math.equation.where(block: false): box
 #set math.equation(numbering: none)
+#set math.frac(style: "horizontal")
 #show: show-theorion
 
 // override ilm defaults again since previous is re-override in ilm
@@ -37,6 +38,7 @@
 )
 #set enum(indent: 1em)
 #set list(indent: 1em)
+#set underline(stroke: 1pt + black)
 
 #counter(page).update(1)
 
