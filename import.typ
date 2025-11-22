@@ -11,11 +11,13 @@
 
 #let calc = $cal(C)$
 #let cald = $cal(D)$
+#let hom = "Hom"
 #let unlp(var) = $sans(bold(B)var)$ // unloop
 #let Set = $sans("Set")$
 #let grp = $sans("Grp")$
 #let vectk = $sans("Vect"_k)$
 #let op = "op"
+#let psh = $Set^(calc^op)$
 
 #let idea-box = tip-box.with(title: "Idea")
 #let iso = symbol(sym.tilde.equiv)

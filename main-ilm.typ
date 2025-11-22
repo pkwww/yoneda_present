@@ -24,13 +24,14 @@
 #show math.equation: set text(
   font: (
     (name: "New Computer Modern Math"),
-    "Noto Serif TC"
-  )
+    // (name: "Noto Sans TC")
+  ),
 )
 #show math.equation.where(block: false): box
 #set math.equation(numbering: none)
 #set math.frac(style: "horizontal")
 #show: show-theorion
+#set-theorion-numbering("1.1.1.a")
 
 // override ilm defaults again since previous is re-override in ilm
 #set text(
