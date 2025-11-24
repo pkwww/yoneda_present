@@ -24,4 +24,4 @@
 // #let natiso = $limits(tilde.equiv)^("nat")$
 #let natiso = $attach(iso, t: "nat")$
 #let coprod = symbol(sym.product.co)
-#let yo = symbol("よ")
+#let yo = text(weight: "regular", "よ")

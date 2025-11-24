@@ -4,7 +4,7 @@
 #set text(
   font: (
     (name: "Libertinus Serif", covers: "latin-in-cjk"), 
-    "Noto Serif TC"
+    "Noto Serif HK",
   ), 
 )
 
@@ -24,7 +24,7 @@
 #show math.equation: set text(
   font: (
     (name: "New Computer Modern Math"),
-    // (name: "Noto Sans TC")
+    (name: "Noto Sans JP")
   ),
 )
 #show math.equation.where(block: false): box
@@ -36,10 +36,10 @@
 // override ilm defaults again since previous is re-override in ilm
 #set text(
   font: (
-    (name: "Libertinus Serif", covers: "latin-in-cjk"), 
-    "Noto Serif TC"
-  ), 
-  size: 12pt, 
+    (name: "Libertinus Serif", covers: "latin-in-cjk"),
+    "Noto Serif JP"
+  ),
+  size: 12pt,
   lang: "en"
 )
 #set enum(indent: 1em)
