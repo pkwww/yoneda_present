@@ -12,6 +12,7 @@
   Again, this bijection is natural in both $X$ and $F$.
 ]<thm:yoneda>
 #proof[
+  //TODO
   #highlight("TODO")
 ]
 
@@ -56,6 +57,6 @@ Applying $F$ with another $hom$ functor, we have the following important special
   The theorem and the two corollaries are often collectively referred to as the Yoneda Lemma.
 ]
 #idea-box[
-  The yoneda embedding $yo: calc -> psh$ allows us to view any object $X in calc$ as the $hom(-, X)$. Thus we can study the properties of objects in $calc$ by studying the properties of the corresponding $hom$ functors in the functor category $psh$. This is often very useful since functor categories often have better properties (e.g. completeness, cocompleteness) than the original category.
+  The yoneda embedding $yo: calc -> psh$ allows us to view any object $X$ as $h^X$ keeping all the morphisms intact. Thus we can study the properties of objects in $calc$ by studying the properties of the corresponding $hom$ functors in the functor category $psh$. This is often very useful since functor categories often have better properties (e.g. completeness, cocompleteness) than the original category.
 ]
 // TODO: the generalized element point of view
