@@ -27,3 +27,11 @@
 #let natiso = $attach(iso, t: "nat")$
 #let coprod = symbol(sym.product.co)
 #let yo = text(weight: "regular", "よ")
+
+// Centralized theorion-restate with fixed render function
+#let restate-prefix(label) = {
+  theorion-restate(
+    filter: label,
+    render: it => (prefix: none, title: "", full-title: auto, body) => strong[#prefix]
+  )
+}

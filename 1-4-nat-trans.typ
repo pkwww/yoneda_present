@@ -102,10 +102,7 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in calc)
   if $g: B -> X$, we have $(h compose g) compose f = h compose (g compose f)$ by associativity. Hence the square commutes. Thus,
   + $- compose f$ is a natural transformation $hom(B, -) => hom(A, -)$
   + $h compose -$ is a natural transformation $hom(-, X) => hom(-, Y)$
-  Recall #theorion-restate(
-    filter: <thm:iso-repr>, 
-    render: it => (prefix: none, title: "", full-title: auto, body) => strong[#prefix]
-  ). This result can be strengthened from $hom(c, X) -> hom(c, Y)$ is a bijection to saying $hom(-, X) iso hom(-, Y)$ a *natural isomorphism*.
+  Recall #restate-prefix(<thm:iso-repr>). This result can be strengthened from "$hom(c, X) -> hom(c, Y)$ is a bijection" to "$hom(-, X) iso hom(-, Y)$ a *natural isomorphism*".
 ]
 #theorem(title: "Isomorphism is representable, naturally")[
   The following are equivalent:

@@ -18,7 +18,7 @@
 
 #property[
   Functors preserve isomorphisms. That is, if $F: calc -> cal(D)$ is a functor and $f: X -> Y$ is an isomorphism in $calc$, then $F(f): F(X) -> F(Y)$ is an isomorphism in $cal(D)$.
-]
+]<prop:functor-preserves-iso>
 #proof[
   Let $g: Y -> X$ be the inverse of $f$. Then $F(f) compose F(g) = F(f compose g) = F(id_Y) = id_(F(Y))$ and similarly $F(g) compose F(f) = id_(F(X))$. Thus, $F(g)$ is the inverse of $F(f)$.
 ]
