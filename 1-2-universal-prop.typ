@@ -45,7 +45,7 @@
 ]
 
 #fancy.definition(title: "product")[
-  Give two objects $X, Y$ in $calc$, their *product* $X times Y$ is an object together with two projection morphisms $pi_1: X times Y -> X$ and $pi_2: X times Y -> Y$, such that for any object $Z$ with morphisms $f_1: Z -> X$ and $f_2: Z -> Y$, there #underline[exists a unique] morphism $accent(f, tilde): Z -> X times Y$ making the following diagram commute:
+  Give two objects $X, Y$ in $calc$, their *product* $X times Y$ is an object together with two projection morphisms $pi_1: X times Y -> X$ and $pi_2: X times Y -> Y$, such that for any object $Z$ with morphisms $f_1: Z -> X$ and $f_2: Z -> Y$, there #underline[exists a unique] morphism $ftilde: Z -> X times Y$ making the following diagram commute:
   #align(center)[
     #commutative-diagram(
       node-padding: (35pt, 35pt),
@@ -53,18 +53,18 @@
       node((0, 0), $X times Y$),
       node((1, -1), $X$),
       node((1, 1), $Y$),
-      arr($Z$, $X times Y$, $exists! accent(f, tilde)$, "dashed"),
+      arr($Z$, $X times Y$, $exists! ftilde$, "dashed"),
       arr($X times Y$, $X$, $pi_1$),
       arr($X times Y$, $Y$, $pi_2$, label-pos: right),
       arr($Z$, $X$, $f_1$, label-pos: right, curve: -30deg),
       arr($Z$, $Y$, $f_2$, curve: 30deg),
     )
   ]
-  i.e. $f_1 = pi_1 compose accent(f, tilde)$ and $f_2 = pi_2 compose accent(f, tilde)$.
+  i.e. $f_1 = pi_1 compose ftilde$ and $f_2 = pi_2 compose ftilde$.
 ]<def:product>
 Dually,
 #fancy.definition(title: "coproduct")[
-  Given two objects $A, B$ in $calc$, their *coproduct* $A coprod B$ is an object together with two injection morphisms $i_1: A -> A coprod B$ and $i_2: B -> A coprod B$, such that for any object $Z$ with morphisms $f_1: A -> Z$ and $f_2: B -> Z$, there #underline[exists a unique] morphism $accent(f, tilde): A coprod B -> Z$ making the following diagram commute:
+  Given two objects $A, B$ in $calc$, their *coproduct* $A coprod B$ is an object together with two injection morphisms $i_1: A -> A coprod B$ and $i_2: B -> A coprod B$, such that for any object $Z$ with morphisms $f_1: A -> Z$ and $f_2: B -> Z$, there #underline[exists a unique] morphism $ftilde: A coprod B -> Z$ making the following diagram commute:
   #align(center)[
     #commutative-diagram(
       node-padding: (35pt, 35pt),
@@ -72,14 +72,14 @@ Dually,
       node((0, 0), $A coprod B$),
       node((1, -1), $A$),
       node((1, 1), $B$),
-      arr($A coprod B$, $Z$, $exists! accent(f, tilde)$, label-pos:right, "dashed"),
+      arr($A coprod B$, $Z$, $exists! ftilde$, label-pos:right, "dashed"),
       arr($A$, $A coprod B$, $i_1$, label-pos: right),
       arr($B$, $A coprod B$, $i_2$),
       arr($A$, $Z$, $f_1$, curve: 30deg),
       arr($B$, $Z$, $f_2$, label-pos: right, curve: -30deg),
     )
   ]
-  i.e. $f_1 = accent(f, tilde) compose i_1$ and $f_2 = accent(f, tilde) compose i_2$.
+  i.e. $f_1 = ftilde compose i_1$ and $f_2 = ftilde compose i_2$.
 ]
 #clouds.property[
   The product (coproduct) is unique up to isomorphism.
