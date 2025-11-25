@@ -14,8 +14,8 @@
   + associativity: if $f: X -> Y$, $g: Y -> Z$, $h: Z -> W$, then $(h compose g) compose f = h compose (g compose f)$
   + identity: for any morphism $f: X -> Y$, we have $id_X compose f = f = f compose id_Y$
 ]<def:category>
-#fancy.definition(title: "Hom")[
-  The collection of morphisms between $X$ and $Y$ is denoted as $calc(X, Y)$ or $"Hom"_(calc)(X, Y)$ (or simply $"Hom"(X, Y)$ if the category is clear from context).
+#fancy.definition(title: hom)[
+  The collection of morphisms between $X$ and $Y$ is denoted as $calc(X, Y)$ or $hom_(calc)(X, Y)$ (or simply $hom(X, Y)$ if the category is clear from context).
 ]
 #definition(title: "(Locally) Small Category")[
   A category is small if the collection of all morphisms is a set. (thus the collection of objects also a set)\
@@ -129,23 +129,23 @@
 #theorem(title: "Isomorphism is representable")[
   The following are equivalent:
   + $f: X -> Y$ is an isomorphism
-  + for any $c in calc$, the map $f compose - : "Hom"(c, X) -> "Hom"(c, Y)$ is a bijection. ($f compose -$ is also written as $f_*$)
-  + for any $c in calc$, the map $- compose f: "Hom"(Y, c) -> "Hom"(X, c)$ is a bijection. ($- compose f$ is also written as $f^*$)
+  + for any $c in calc$, the map $f compose - : hom(c, X) -> hom(c, Y)$ is a bijection. ($f compose -$ is also written as $f_*$)
+  + for any $c in calc$, the map $- compose f: hom(Y, c) -> hom(X, c)$ is a bijection. ($- compose f$ is also written as $f^*$)
 ]<thm:iso-repr>
 #proof()[
   We first prove $(1) <=> (2)$, then use dual argument to get $(1) <=> (3)$.\
   $(1) => (2)$: Suppose $f: X -> Y$ is an isomorphism, with inverse $f^(-1): Y -> X$. \
-  For any $c in calc$, we want to find the inverse $g_*$ of the map $ f_* eq.def f compose - : "Hom"(c, X) -> "Hom"(c, Y) $
-  More precisely, let $X_*: c -> X$ in $"Hom"(c, X)$ and $Y_*: c -> Y$ in $"Hom"(c, Y)$, \
+  For any $c in calc$, we want to find the inverse $g_*$ of the map $ f_* eq.def f compose - : hom(c, X) -> hom(c, Y) $
+  More precisely, let $X_*: c -> X$ in $hom(c, X)$ and $Y_*: c -> Y$ in $hom(c, Y)$, \
   we want to show that $g_*(f_*(X_*))= X_*$ and $f_*(g_*(Y_*)) = Y_*$. Define
-  $ &g_*: "Hom"(c, Y) -> "Hom"(c, X) \
+  $ &g_*: hom(c, Y) -> hom(c, X) \
   &g_*(Y_*) eq.def f^(-1) compose Y_* $
   Unpacking the definitions will do the job.\
 
   $(2) => (1)$: First we want to prove the right inverse, i.e. exist $g: Y -> X$ such that $f compose g = id_Y$. \
-  Consider when $c = Y$, then $f_*: "Hom"(Y, X) -> "Hom"(Y, Y)$. Since $f_*$ is surjective, every element in $"Hom"(Y, Y)$ has a preimage. In particular for $id_Y in "Hom"(Y, Y)$, there exists $g in "Hom"(Y, X)$ such that $f_*(g) =  id_Y$, i.e. $f compose g = id_Y$.
+  Consider when $c = Y$, then $f_*: hom(Y, X) -> hom(Y, Y)$. Since $f_*$ is surjective, every element in $hom(Y, Y)$ has a preimage. In particular for $id_Y in hom(Y, Y)$, there exists $g in hom(Y, X)$ such that $f_*(g) =  id_Y$, i.e. $f compose g = id_Y$.
   Then we want to prove that this $g$ is also the left inverse, i.e. $g compose f = id_X$. \
-  Consider when $c = X$, then $f_*: "Hom"(X, X) -> "Hom"(X, Y)$. Note that $g compose f: X -> X$ is in $"Hom"(X, X)$. Then
+  Consider when $c = X$, then $f_*: hom(X, X) -> hom(X, Y)$. Note that $g compose f: X -> X$ is in $hom(X, X)$. Then
   #[
     #show math.eq: set text(fill: blue)
     $ f_*(g compose f) = f compose (g compose f)

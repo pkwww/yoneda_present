@@ -2,7 +2,7 @@
 
 == Natural Transformation
 === Motivation
-Let $V$ be a finite dimensional vector space with field $k$. The dual space $V^* = "Hom"(V, k)$ is the set of linear functionals from $V -> k$.
+Let $V$ be a finite dimensional vector space with field $k$. The dual space $V^* = hom(V, k)$ is the set of linear functionals from $V -> k$.
 
 Given a basis ${e_i}$ in V, we can construct a dual basis ${e^*_i}$ in $V^*$ defined by 
 $e^*_i(e_j) = cases(
@@ -94,24 +94,24 @@ A natural transformation $eta$ is a collection of morphisms ${eta_c}_(c in calc)
   (Hom functors). Given $f: A -> B, h: X -> Y$, consider the following square:
   #align(center)[
     #nat-trans(
-      ($"Hom"(B, X)$, $"Hom"(B, Y)$, $"Hom"(A, X)$, $"Hom"(A, Y)$),
-      ($"Hom"(B, h) = h compose -$, $"Hom"(f, X) = - compose f$, $- compose f = "Hom"(f, Y)$, $"Hom"(A, h) = h compose -$),
+      ($hom(B, X)$, $hom(B, Y)$, $hom(A, X)$, $hom(A, Y)$),
+      ($hom(B, h) = h compose -$, $hom(f, X) = - compose f$, $- compose f = hom(f, Y)$, $hom(A, h) = h compose -$),
       node-padding: (140pt, 80pt),
     )
   ]
   if $g: B -> X$, we have $(h compose g) compose f = h compose (g compose f)$ by associativity. Hence the square commutes. Thus,
-  + $- compose f$ is a natural transformation $"Hom"(B, -) => "Hom"(A, -)$
-  + $h compose -$ is a natural transformation $"Hom"(-, X) => "Hom"(-, Y)$
+  + $- compose f$ is a natural transformation $hom(B, -) => hom(A, -)$
+  + $h compose -$ is a natural transformation $hom(-, X) => hom(-, Y)$
   Recall #theorion-restate(
     filter: <thm:iso-repr>, 
     render: it => (prefix: none, title: "", full-title: auto, body) => strong[#prefix]
-  ). This result can be strengthened from $"Hom"(c, X) -> "Hom"(c, Y)$ is a bijection to saying $"Hom"(-, X) iso "Hom"(-, Y)$ a *natural isomorphism*.
+  ). This result can be strengthened from $hom(c, X) -> hom(c, Y)$ is a bijection to saying $hom(-, X) iso hom(-, Y)$ a *natural isomorphism*.
 ]
 #theorem(title: "Isomorphism is representable, naturally")[
   The following are equivalent:
   + $f: X -> Y$ is an isomorphism
-  + $"Hom"(-, X) natiso "Hom"(-, Y)$
-  + $"Hom"(Y, -) natiso "Hom"(X, -)$
+  + $hom(-, X) natiso hom(-, Y)$
+  + $hom(Y, -) natiso hom(X, -)$
 ]<thm:iso-repr-nat>
 
 #fancy.definition(title: "Functor category")[

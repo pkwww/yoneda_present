@@ -54,19 +54,19 @@
 
 #example[
   The contravariant dual vector space functor $(-)^*: vectk^op -> vectk$ maps
-  + each vector space $V$ to its dual space $V^* = "Hom"(V, k)$
+  + each vector space $V$ to its dual space $V^* = hom(V, k)$
   + each linear transformation $f: V -> W$ to the dual map $f^*: W^* -> V^*$ defined by $f^*(phi) = phi compose f$ for each $phi in W^* = (W -> k)$.
   functoriality is checked as $(f^* compose g^*)(phi) = (phi compose g) compose f = phi compose (g compose f) = (g compose f)^* (phi)$
 ]
 
 #fancy.definition(title: "Hom functor")[
-  The Hom functor $"Hom"(A, -): calc -> Set$ or simply $h_A$ for a fixed object $A in calc$ maps
-  + each object $X in calc$ to the hom set $"Hom"(A, X)$. \ (explicit typing: $X -> (A -> X)$)
+  The Hom functor $hom(A, -): calc -> Set$ or simply $h_A$ for a fixed object $A in calc$ maps
+  + each object $X in calc$ to the hom set $hom(A, X)$. \ (explicit typing: $X -> (A -> X)$)
   + each morphism $f: X -> Y$ to the function 
-  $ "Hom"(A, f)&: "Hom"(A, X) -> "Hom"(A, Y) \ "Hom"(A, f) &= f compose - $  (explicit typing: $(X -> Y) -> (A -> X) -> (A -> Y)$)
+  $ hom(A, f)&: hom(A, X) -> hom(A, Y) \ hom(A, f) &= f compose - $  (explicit typing: $(X -> Y) -> (A -> X) -> (A -> Y)$)
 
-  Similarly, we have the contravariant Hom functor $h^X = "Hom"(-, X): calc^op -> Set$ mapping each morphism $f: A -> B$ to the function 
-  $ "Hom"(f, X)&: "Hom"(B, X) -> "Hom"(A, X) \ "Hom"(f, X) &= - compose f $
+  Similarly, we have the contravariant Hom functor $h^X = hom(-, X): calc^op -> Set$ mapping each morphism $f: A -> B$ to the function 
+  $ hom(f, X)&: hom(B, X) -> hom(A, X) \ hom(f, X) &= - compose f $
   We can write more compactly as $h_(A)(X), h_(A)(f), h^(X)(A), h^(X)(f)$.
 ]
 #fancy.definition(title: "Product category")[
@@ -77,9 +77,9 @@
   + identities: $(id_c, id_d)$ for each object $(c, d)$
 ]
 #definition(title: "Hom bifunctor")[
-  Define $"Hom"(-, -): calc^op times calc -> Set$ by
-  + objects: $(A, X) mapsto "Hom"(A, X)$
-  + morphisms: for a pair $(f, h): (A' -> A, X -> X')$ maps to $"Hom"(A, X) -> "Hom"(A', X')$ by $g mapsto h compose g compose f$
+  Define $hom(-, -): calc^op times calc -> Set$ by
+  + objects: $(A, X) mapsto hom(A, X)$
+  + morphisms: for a pair $(f, h): (A' -> A, X -> X')$ maps to $hom(A, X) -> hom(A', X')$ by $g mapsto h compose g compose f$
 ]
 #note-box[
   The image of $F: calc -> cal(D)$ is not necessarily a subcategory of $cal(D)$. Idea: when $c_1, c_2$ both map to the same object $d$, then for any two $c_1 -> c_2$, their images are both morphisms $d -> d$ which is composable, but the sources cannot be composed since they don't have matching domain and codomain.

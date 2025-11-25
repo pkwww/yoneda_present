@@ -26,6 +26,7 @@
     (name: "New Computer Modern Math"),
     (name: "Noto Sans JP")
   ),
+  weight: "regular"
 )
 #show math.equation.where(block: false): box
 #set math.equation(numbering: none)
@@ -55,3 +56,4 @@
 #include "1-4-nat-trans.typ"
 = Yoneda Lemma, Representation, Universality
 #include "2-1-yoneda.typ"
+#include "2-2-representation.typ"
