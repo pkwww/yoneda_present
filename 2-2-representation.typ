@@ -73,8 +73,44 @@ Hence, the functor $F$ is naturally isomophic to $hom(-, P)$, i.e. $F$ is repres
 
   Let $(U, u)$ be a pair with $U in calc$ and $u in F(U)$. Let $alpha$ be the natural transformation induced by $u$ as in Yoneda lemma. Then,
   $ hom(U, -) attach(iso, t: alpha) F <=> (U, u) "is a universal element." $
+  Similar for contravariant functor.
 ]
 #proof[
   $hom(U, X) attach(iso, t: alphax) F X$ #h(0.5em) _iff_ #h(0.5em) $forall x in F X, exists! f: U -> X$ such that $alphax(f) attach(=, t: yo) F f (u) = x$, which is exactly the definition of universal element.
+
 ]
 
+#example[
+  $star: calc -> Set$ is the constant functor sending all objects to the singleton set. It is representable _iff_ #h(0.2em) $exists (U, *)$ s.t. for every $(X, *)$, there exists a unique $f: U -> X$, s.t. $* = star(f)(*) = *$. i.e. $U$ is an initial object.
+]
+
+#example[
+  The power set functor $P: Set^op -> Set$ is represented by ($Omega, sans(T)$). That is, $forall (S, s subset.eq S), exists!f: S -> Omega$ s.t. $s = P f (sans(T)) = f^(-1)(sans(T))$.
+]
+
+#example[
+  $hom(- times B, C): calc^op -> Set$ is represented by ($C^B, "ev"$), where $"ev": C^B times B -> C$ is the evaluation map. That is for every $(A, g: A times B -> C)$, there exists a unique $h: A -> C^B$ such that $g = F h("ev")=lambda(a, b)."ev"(h(a), b) = lambda(a, b) h(a)(b)$ that is $g(a, b) = h(a)(b)$
+]
+
+#example[
+  #let bvw(t) = $B(V, W; #t)$
+  #let vcw = $V times W$
+  #let vtw = $V times.o W$
+  #let opt = $- times.o -$
+  Given two vector space $V, W$. Consider the functor $bvw(-): vectk -> Set$ that send a vector space $X$ to the set of bilinear maps $vcw -> X$. Define the representation of this functor to be:
+  #definition[
+    $hom(vtw, X) natiso bvw(X)$
+  ]
+  i.e. #vtw represents the functor $bvw(-)$. A universal element is an element in bvw(vtw), denoted as $- times.o -: vcw -> vtw$. Then for every $(X, f: vcw -> X)$, there exists a unique linear map $ftilde: vtw -> X$ such that $f = bvw(ftilde)(opt) = lambda phi v w. f(phi(v, w))(opt) = lambda v w. f(v times.o w) = f compose (opt)$. This is usually represent with the diagram:
+  #align(center)[
+    #commutative-diagram(
+      node-padding: (50pt, 50pt),
+      node((0, -1), $vcw$),
+      node((0, 0), $vtw$),
+      node((1, 0), $X$),
+      arr($vcw$, $vtw$, $- times.o -$),
+      arr($vtw$, $X$, $exists! ftilde$, "dashed"),
+      arr($vcw$, $X$, $f$, curve: 0deg),
+    )
+  ]
+]
