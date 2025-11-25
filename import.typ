@@ -18,6 +18,8 @@
 #let vectk = $sans("Vect"_k)$
 #let op = "op"
 #let psh = $Set^(calc^op)$
+#let alphax = $alpha_(X)$
+#let alphaa = $alpha_(A)$
 
 #let idea-box = tip-box.with(title: "Idea")
 #let iso = symbol(sym.tilde.equiv)
